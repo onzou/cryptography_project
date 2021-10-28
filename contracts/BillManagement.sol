@@ -5,11 +5,10 @@ contract BillManagement
     Customer[] public customers;
     Bill[] public bills;
     address manager;
-    uint billCount = 0;
-    uint customerCount = 0; 
+    uint public billCount = 0;
+    uint public customerCount = 0; 
     
-    function BillManagement() public 
-    {
+    constructor() public  {
         manager = msg.sender;
     }
 
@@ -32,7 +31,7 @@ contract BillManagement
         billCount++;
         bills.push(Bill(billCount,customer,amount, false));
     }
-    
+   
     function customerSubscribe(string fullName) public 
     {
         customerCount++;
